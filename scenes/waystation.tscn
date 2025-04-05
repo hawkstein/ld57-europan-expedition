@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf5vdc3wy282e"]
+
+[ext_resource type="Script" uid="uid://2qofjd6mhyej" path="res://scripts/waystation.gd" id="1_6rwgr"]
+[ext_resource type="Texture2D" uid="uid://ctoh4bphxgdfb" path="res://assets/Waystation.png" id="1_nyjse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nyjse"]
+radius = 16.0
+
+[node name="Waystation" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_6rwgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nyjse")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nyjse")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
