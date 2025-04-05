@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-const VERTICAL_THRUST = Vector2(0, -80.0)
-const HORIZONTAL_THRUST = Vector2(160, 0)
+const VERTICAL_THRUST = Vector2(0, 40.0)
+const HORIZONTAL_THRUST = Vector2(100, 0)
 
 signal energy_update(energy:float)
 var tick_loss := 1
@@ -17,7 +17,7 @@ var deploy_mode := false
 func remove_energy(amount:float) -> void:
 	energy -= amount
 	emit_signal("energy_update", energy)
-	if (energy <= 0):
+	if energy <= 0:
 		get_tree().change_scene_to_file("res://scenes/interlude.tscn")
 
 func _process(delta: float) -> void:
@@ -26,10 +26,11 @@ func _process(delta: float) -> void:
 		deploy_mode = !deploy_mode
 
 func _integrate_forces(state):
-	if Input.is_action_pressed("thrust_up"):
-		state.apply_force(VERTICAL_THRUST)
+	var vertical_direction = Input.get_axis("thrust_up", "thrust_down")
+	if vertical_direction:
+		state.apply_force(VERTICAL_THRUST * vertical_direction)
 	var horizontal_direction = Input.get_axis("thrust_left", "thrust_right")
-	if (horizontal_direction):
+	if horizontal_direction:
 		state.apply_force(HORIZONTAL_THRUST * horizontal_direction)
 
 
