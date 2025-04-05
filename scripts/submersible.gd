@@ -34,11 +34,11 @@ func _integrate_forces(state):
 		state.apply_force(HORIZONTAL_THRUST * horizontal_direction)
 
 
-func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+func _on_body_shape_entered(_body_rid: RID, _body: Node, _body_shape_index: int, _local_shape_index: int) -> void:
 	remove_energy(contact_loss)
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if deploy_mode:
 		waystation.visible = false
 		can_deploy = false

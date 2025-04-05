@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=8 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://6m8r3jixkgey" path="res://assets/SmallBlockA.png" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://fbur17pmri2x" path="res://scripts/hud.gd" id="4_lbhrr"]
 [ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dhnwbu4oab6u8" path="res://scenes/ore.tscn" id="7_u5sy4"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
@@ -31,6 +32,14 @@ scale = Vector2(1, -1)
 [node name="Wall4" parent="Walls" instance=ExtResource("2_yqjtg")]
 position = Vector2(1, 569)
 
+[node name="Wall5" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(577, 1131)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(1, 1131)
+
 [node name="SmallBlock" type="StaticBody2D" parent="."]
 position = Vector2(228, 286)
 
@@ -38,6 +47,18 @@ position = Vector2(228, 286)
 polygon = PackedVector2Array(-30, -65, -5, -64, 35, 1, 28, 37, 5, 63, -30, 30, -36, -14)
 
 [node name="Sprite2D" type="Sprite2D" parent="SmallBlock"]
+scale = Vector2(0.171, 0.171)
+texture = ExtResource("3_lnu2h")
+
+[node name="SmallBlock2" type="StaticBody2D" parent="."]
+position = Vector2(228, 286)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallBlock2"]
+position = Vector2(170, 184)
+polygon = PackedVector2Array(-30, -65, -5, -64, 35, 1, 28, 37, 5, 63, -30, 30, -36, -14)
+
+[node name="Sprite2D" type="Sprite2D" parent="SmallBlock2"]
+position = Vector2(169, 181)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("3_lnu2h")
 
@@ -53,6 +74,17 @@ theme_override_colors/font_color = Color(0.992157, 0.996078, 0.537255, 1)
 theme_override_fonts/font = ExtResource("5_iywne")
 theme_override_font_sizes/font_size = 8
 text = "Energy: "
+
+[node name="Resources" type="Node2D" parent="."]
+
+[node name="Ore" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(373, 115)
+
+[node name="Ore2" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(60, 1236)
+
+[node name="Ore3" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(67, 1288)
 
 [connection signal="deploy_waystation" from="Submersible" to="." method="_on_submersible_deploy_waystation"]
 [connection signal="energy_update" from="Submersible" to="HUD" method="_on_submersible_energy_update"]

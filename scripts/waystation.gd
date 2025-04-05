@@ -10,6 +10,6 @@ func transfer_energy() -> float:
 	return energy_available
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	if (energy_storage > 0):
 		emit_signal("waystation_transfer", transfer_energy())
