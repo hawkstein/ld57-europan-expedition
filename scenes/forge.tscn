@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://sqfhiytskn8"]
+
+[ext_resource type="Script" uid="uid://60omi33ethna" path="res://scripts/forge.gd" id="1_ebsuy"]
+[ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="1_huql2"]
+
+[node name="Forge" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ebsuy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 575.0
+offset_bottom = 575.0
+
+[node name="Heading" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 113.0
+offset_top = 34.0
+offset_right = 457.0
+offset_bottom = 50.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "Upgrade the submersible"
+
+[node name="OreTotal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 90.0
+offset_right = 391.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "Refined Ore: XX"
+
+[node name="DiveButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 416.0
+offset_right = 504.0
+offset_bottom = 473.0
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "Dive back into the depths"
+
+[connection signal="pressed" from="DiveButton" to="." method="_on_dive_button_pressed"]
