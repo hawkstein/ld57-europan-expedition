@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://datbrd16t7lty"]
+
+[ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://d3mquy7bvifif" path="res://scenes/wall.tscn" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://6m8r3jixkgey" path="res://assets/SmallBlockA.png" id="3_lnu2h"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Submersible" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(291, 67)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_yqjtg")]
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(577, 569)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(1, 569)
+
+[node name="SmallBlock" type="StaticBody2D" parent="."]
+position = Vector2(228, 286)
+
+[node name="Sprite2D" type="Sprite2D" parent="SmallBlock"]
+scale = Vector2(0.171, 0.171)
+texture = ExtResource("3_lnu2h")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallBlock"]
+polygon = PackedVector2Array(-30, -65, -5, -64, 35, 1, 28, 37, 5, 63, -30, 30, -36, -14)

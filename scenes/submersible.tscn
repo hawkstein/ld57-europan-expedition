@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2spppmyrh54x"]
+
+[ext_resource type="Script" uid="uid://54utm1icvmwt" path="res://scripts/submersible.gd" id="1_d0ry6"]
+[ext_resource type="Texture2D" uid="uid://drxtdl8oxvyxm" path="res://assets/MiniSubmersible.png" id="1_sakq6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d0ry6"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0ry6"]
+radius = 8.06226
+
+[node name="Submersible" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_d0ry6")
+can_sleep = false
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_d0ry6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d0ry6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sakq6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -100
+limit_right = 680
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
