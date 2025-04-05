@@ -4,8 +4,16 @@ const VERTICAL_THRUST = Vector2(0, -80.0)
 const HORIZONTAL_THRUST = Vector2(160, 0)
 
 signal energy_update(energy:float)
+var tick_loss := 1
 var contact_loss := 20.0
 var energy := 100.0
+
+func remove_energy(amount:float) -> void:
+	energy -= amount
+	emit_signal("energy_update", energy)
+
+func _process(delta: float) -> void:
+	remove_energy(tick_loss * delta)
 
 func _integrate_forces(state):
 	if Input.is_action_pressed("thrust_up"):
@@ -16,8 +24,4 @@ func _integrate_forces(state):
 
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	energy -= contact_loss
-	print(energy)
-	emit_signal("energy_update", energy)
-	if energy <= 0:
-		print("Back to the mothership!")
+	remove_energy(contact_loss)
