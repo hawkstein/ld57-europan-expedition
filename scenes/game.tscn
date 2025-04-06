@@ -25,20 +25,20 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="Wall3" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(577, 569)
+position = Vector2(576, 576)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="Wall4" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(1, 569)
+position = Vector2(0, 576)
 
 [node name="Wall5" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(577, 1131)
+position = Vector2(576, 1152)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="Wall6" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(1, 1131)
+position = Vector2(0, 1152)
 
 [node name="SmallBlock" type="StaticBody2D" parent="."]
 position = Vector2(228, 286)
