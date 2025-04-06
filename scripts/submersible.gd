@@ -5,9 +5,9 @@ const HORIZONTAL_THRUST = Vector2(100, 0)
 
 signal energy_update(energy:float)
 var tick_loss := 1
-var contact_loss := 20.0
-var energy := 100.0
-var max_energy := 100
+var contact_loss := 10.0
+var energy := 40.0
+var max_energy := 40
 
 signal deploy_waystation(position)
 var can_deploy := true
@@ -44,7 +44,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		can_deploy = false
 		deploy_mode = false
 		GameManager.add_waystation(global_position)
-		energy = 100
+		energise_from_waystation(max_energy)
 		sleeping = true
 		emit_signal("deploy_waystation", global_position)
 		

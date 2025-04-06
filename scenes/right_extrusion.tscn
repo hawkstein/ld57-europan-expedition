@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2oesh5ito0t6"]
+
+[ext_resource type="Texture2D" uid="uid://cs1o1r32bhnmt" path="res://assets/RightExtrusion.png" id="1_m04dw"]
+
+[node name="RightExtrusion" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 1)
+polygon = PackedVector2Array(-61, 12, -240, 16, -357, 24, -364, 64, -348, 73, -69, 72, -64, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-190, 38)
+texture = ExtResource("1_m04dw")

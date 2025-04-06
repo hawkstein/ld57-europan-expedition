@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=19 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
@@ -7,24 +7,71 @@
 [ext_resource type="Script" uid="uid://fbur17pmri2x" path="res://scripts/hud.gd" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d13tybsnvfos0" path="res://scenes/small_chunk_a.tscn" id="4_u5sy4"]
 [ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bhtixtseheb6a" path="res://scenes/left_extrusion.tscn" id="5_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b2oesh5ito0t6" path="res://scenes/right_extrusion.tscn" id="6_trtic"]
 [ext_resource type="PackedScene" uid="uid://dhnwbu4oab6u8" path="res://scenes/ore.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://mqogy0knaff0" path="res://scenes/big_chunk.tscn" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://yg5sqdl23f51" path="res://assets/Entrance.png" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://mk0ptdi21mg8" path="res://scenes/cavern_side.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dgej47xb54qaf" path="res://scenes/alien_uno.tscn" id="12_dinhu"]
+
+[sub_resource type="Curve2D" id="Curve2D_dinhu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 464, 160, 0, 0, 0, 0, 152, 192, 0, 0, 0, 0, 464, 160)
+}
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_kvuet"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 627.273]
+}
+
+[sub_resource type="Animation" id="Animation_dinhu"]
+resource_name = "follow_path"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 0.225313),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trtic"]
+_data = {
+&"RESET": SubResource("Animation_kvuet"),
+&"follow_path": SubResource("Animation_dinhu")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(288, 1152)
+position = Vector2(288, 2299)
 texture = ExtResource("2_gee14")
 region_enabled = true
-region_rect = Rect2(0, 0, 576, 2304)
+region_rect = Rect2(0, 0, 576, 4608)
 
 [node name="Submersible" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 1
-position = Vector2(291, 67)
+position = Vector2(289, 114)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -59,11 +106,73 @@ scale = Vector2(1, -1)
 [node name="Wall8" parent="Walls" instance=ExtResource("2_yqjtg")]
 position = Vector2(0, 1728)
 
-[node name="SmallChunk" parent="." instance=ExtResource("4_u5sy4")]
-position = Vector2(228, 286)
+[node name="Wall9" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 2304)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
-[node name="SmallChunk2" parent="." instance=ExtResource("4_u5sy4")]
-position = Vector2(349, 377)
+[node name="Wall10" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 2304)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 2880)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 2880)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 3456)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall14" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 3456)
+
+[node name="Wall15" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 4032)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall16" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 4032)
+
+[node name="Wall17" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 4608)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall18" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 4608)
+
+[node name="Wall19" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 5184)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall20" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 5184)
+
+[node name="Wall21" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 5760)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall22" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 5760)
+
+[node name="LeftExtrusion" parent="Walls" instance=ExtResource("5_kvuet")]
+position = Vector2(-2, 2445)
+
+[node name="RightExtrusion" parent="Walls" instance=ExtResource("6_trtic")]
+position = Vector2(579, 1507)
+
+[node name="RightExtrusion2" parent="Walls" instance=ExtResource("6_trtic")]
+position = Vector2(579, 2659)
+
+[node name="LeftExtrusion2" parent="Walls" instance=ExtResource("5_kvuet")]
+position = Vector2(-2, 4173)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4_lbhrr")
@@ -78,30 +187,178 @@ theme_override_fonts/font = ExtResource("5_iywne")
 theme_override_font_sizes/font_size = 8
 text = "Energy: "
 
-[node name="BigChunk" parent="." instance=ExtResource("8_0tnpc")]
-position = Vector2(232, 560)
+[node name="Chunks" type="Node2D" parent="."]
+
+[node name="SmallChunk" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(257, 263)
+
+[node name="SmallChunk2" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(412, 395)
+
+[node name="BigChunk" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(267, 579)
+
+[node name="SmallChunk3" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(221, 1054)
+
+[node name="SmallChunk4" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(157, 1970)
+
+[node name="BigChunk2" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(257, 1739)
+
+[node name="BigChunk3" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(133, 2285)
+
+[node name="BigChunk4" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(344, 3976)
+
+[node name="BigChunk5" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(98, 4121)
+
+[node name="BigChunk6" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(381, 4404)
+
+[node name="BigChunk7" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(384, 5528)
+
+[node name="SmallChunk5" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(443, 2289)
+
+[node name="SmallChunk6" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(399, 2580)
+
+[node name="SmallChunk7" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(276, 5328)
+
+[node name="SmallChunk8" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(224, 5464)
+
+[node name="SmallChunk9" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(136, 5384)
+
+[node name="SmallChunk10" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(416, 5888)
 
 [node name="Resources" type="Node2D" parent="."]
 
-[node name="Ore" parent="Resources" instance=ExtResource("7_u5sy4")]
-position = Vector2(56, 1192)
+[node name="Ore1" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(55, 822)
 
 [node name="Ore2" parent="Resources" instance=ExtResource("7_u5sy4")]
-position = Vector2(60, 1236)
+position = Vector2(59, 866)
 
 [node name="Ore3" parent="Resources" instance=ExtResource("7_u5sy4")]
-position = Vector2(67, 1288)
+position = Vector2(519, 814)
+
+[node name="Ore4" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(518, 882)
+
+[node name="Ore5" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(519, 954)
+
+[node name="Ore6" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(339, 1734)
+
+[node name="Ore7" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(334, 1778)
+
+[node name="Ore8" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(303, 1821)
+
+[node name="Ore9" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(520, 1776)
+
+[node name="Ore10" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(184, 1984)
+
+[node name="Ore11" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(512, 2104)
+
+[node name="Ore12" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(512, 2176)
+
+[node name="Ore13" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(200, 2352)
+
+[node name="Ore14" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(64, 2400)
+
+[node name="Ore15" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(136, 2360)
+
+[node name="Ore16" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(64, 2360)
 
 [node name="Entrance" type="Sprite2D" parent="."]
 position = Vector2(288, -24)
 texture = ExtResource("10_vtaks")
 
 [node name="CavernSide" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(-512, 2296)
+position = Vector2(944, 2280)
 
 [node name="CavernSide2" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(1080, 2296)
+position = Vector2(2536, 2280)
 scale = Vector2(-1, 1)
+
+[node name="Aliens" type="Node2D" parent="."]
+
+[node name="AlienPath1" type="Path2D" parent="Aliens"]
+position = Vector2(-16, 2800)
+curve = SubResource("Curve2D_dinhu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath1"]
+position = Vector2(464, 160)
+rotation = 3.03851
+rotates = false
+
+[node name="AlienUno" parent="Aliens/AlienPath1/PathFollow2D" instance=ExtResource("12_dinhu")]
+position = Vector2(0, -2.86102e-06)
+rotation = -3.03851
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath1/PathFollow2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_trtic")
+}
+autoplay = "follow_path"
+
+[node name="AlienPath2" type="Path2D" parent="Aliens"]
+position = Vector2(-48, 3360)
+curve = SubResource("Curve2D_dinhu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath2"]
+position = Vector2(464, 160)
+rotation = 3.03851
+rotates = false
+
+[node name="AlienUno" parent="Aliens/AlienPath2/PathFollow2D" instance=ExtResource("12_dinhu")]
+position = Vector2(0, -2.86102e-06)
+rotation = -3.03851
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath2/PathFollow2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_trtic")
+}
+autoplay = "follow_path"
+
+[node name="AlienPath3" type="Path2D" parent="Aliens"]
+position = Vector2(-16, 3544)
+curve = SubResource("Curve2D_dinhu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath3"]
+position = Vector2(464, 160)
+rotation = 3.03851
+rotates = false
+
+[node name="AlienUno" parent="Aliens/AlienPath3/PathFollow2D" instance=ExtResource("12_dinhu")]
+position = Vector2(0, -2.86102e-06)
+rotation = -3.03851
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath3/PathFollow2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_trtic")
+}
+autoplay = "follow_path"
 
 [connection signal="deploy_waystation" from="Submersible" to="." method="_on_submersible_deploy_waystation"]
 [connection signal="energy_update" from="Submersible" to="HUD" method="_on_submersible_energy_update"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6m8r3jixkgey"
-path="res://.godot/imported/SmallBlockA.png-c9f25ee39654b2e702016d9a6cbc8c86.ctex"
+uid="uid://dypymobxm4705"
+path="res://.godot/imported/AlienUno.png-6ea5913c35f2622092a2122d8ab988fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SmallBlockA.png"
-dest_files=["res://.godot/imported/SmallBlockA.png-c9f25ee39654b2e702016d9a6cbc8c86.ctex"]
+source_file="res://assets/AlienUno.png"
+dest_files=["res://.godot/imported/AlienUno.png-6ea5913c35f2622092a2122d8ab988fb.ctex"]
 
 [params]
 
