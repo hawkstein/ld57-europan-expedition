@@ -4,18 +4,18 @@ const WAYSTATION = preload("res://scenes/waystation.tscn")
 @onready var submersible: RigidBody2D = $Submersible
 
 func _ready() -> void:
-	for position in GameManager.get_waystations():
-		var station = init_waystation(position)
+	for station_position in GameManager.get_waystations():
+		var station = init_waystation(station_position)
 		station.connect("waystation_transfer", energise_submersible)
 
-func _on_submersible_deploy_waystation(position: Vector2) -> void:
-	init_waystation(position)
+func _on_submersible_deploy_waystation(station_position: Vector2) -> void:
+	init_waystation(station_position)
 	submersible.sleeping = false
 	
-func init_waystation(position:Vector2) -> Area2D:
+func init_waystation(station_position:Vector2) -> Area2D:
 	var station = WAYSTATION.instantiate()
 	add_child(station)
-	station.global_position = position
+	station.global_position = station_position
 	return station
 
 func energise_submersible(energy:float):
