@@ -12,38 +12,92 @@ script = ExtResource("1_ebsuy")
 layout_mode = 0
 offset_right = 575.0
 offset_bottom = 575.0
+metadata/_edit_lock_ = true
 
 [node name="Heading" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 113.0
-offset_top = 34.0
-offset_right = 457.0
-offset_bottom = 50.0
+layout_mode = 2
+offset_left = 115.0
+offset_top = 21.0
+offset_right = 467.0
+offset_bottom = 37.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_huql2")
 theme_override_font_sizes/font_size = 16
 text = "Upgrade the submersible"
 
-[node name="OreTotal" type="Label" parent="."]
+[node name="DiveButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 177.0
-offset_top = 90.0
-offset_right = 391.0
-offset_bottom = 113.0
+offset_left = 83.0
+offset_top = 486.0
+offset_right = 493.0
+offset_bottom = 543.0
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "Dive back into the depths"
+
+[node name="OreTotal" type="Label" parent="."]
+layout_mode = 2
+offset_left = 181.0
+offset_top = 77.0
+offset_right = 399.0
+offset_bottom = 93.0
 theme_override_fonts/font = ExtResource("1_huql2")
 theme_override_font_sizes/font_size = 16
 text = "Refined Ore: XX"
 
-[node name="DiveButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 416.0
-offset_right = 504.0
-offset_bottom = 473.0
+[node name="WaystationButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 130.0
+offset_right = 553.0
+offset_bottom = 174.0
 theme_override_fonts/font = ExtResource("1_huql2")
 theme_override_font_sizes/font_size = 16
-text = "Dive back into the depths"
+text = "40 Ore - Construct Waystation
+"
+
+[node name="UpgradeVThrust" type="Button" parent="."]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 196.0
+offset_right = 554.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "10 Ore - Vertical Thrust: Lvl 1/5
+"
+
+[node name="UpgradeHThrust" type="Button" parent="."]
+layout_mode = 2
+offset_left = 38.0
+offset_top = 253.0
+offset_right = 552.0
+offset_bottom = 293.0
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "10 Ore - Horizontal Thrust: Lvl 1/5
+"
+
+[node name="UpgradeBattery" type="Button" parent="."]
+layout_mode = 2
+offset_left = 45.0
+offset_top = 315.0
+offset_right = 539.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "10 Ore - Battery: 80 => 100
+"
+
+[node name="UpgradeWaystation" type="Button" parent="."]
+layout_mode = 2
+offset_left = 47.0
+offset_top = 381.0
+offset_right = 545.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("1_huql2")
+theme_override_font_sizes/font_size = 16
+text = "10 Ore -  Recharge: 40 => 60
+"
 
 [connection signal="pressed" from="DiveButton" to="." method="_on_dive_button_pressed"]
