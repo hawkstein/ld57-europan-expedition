@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=35 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
@@ -188,6 +188,36 @@ _data = {
 &"RESET": SubResource("Animation_264po"),
 &"follow_path": SubResource("Animation_ssvqc")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_ca42v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 115, 52, 0, 0, 0, 0, 77, 83, 0, 0, 0, 0, 74, 149, 0, 0, 0, 0, 113, 196, 0, 0, 0, 0, 160, 221, 0, 0, 0, 0, 230, 202, 0, 0, 0, 0, 259, 143, 0, 0, 0, 0, 242, 91, 0, 0, 0, 0, 209, 46, 0, 0, 0, 0, 152, 32, 0, 0, 0, 0, 115, 52)
+}
+point_count = 11
+
+[sub_resource type="Curve2D" id="Curve2D_rysoc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 80, 56, 0, 0, 0, 0, 195, 50, 0, 0, 0, 0, 264, 50, 0, 0, 0, 0, 301, 50, 0, 0, 0, 0, 264, 51, 0, 0, 0, 0, 195, 50, 0, 0, 0, 0, 79, 55, 0, 0, 0, 0, 80, 56)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_ssvqc"]
+_data = {
+"points": PackedVector2Array(-81.07, 33.88, 81.07, -33.88, 34, 29, -4.84, -81.07, 4.84, 81.07, 234, 105, 55.66, 8.47, -55.66, -8.47, 113, 210, 52.03, 66.55, -52.03, -66.55, -19, 152, 0, 0, 0, 0, 34, 29)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_264po"]
+_data = {
+"points": PackedVector2Array(-90.0307, 17.1487, 90.0307, -17.1487, 117, 222, -83.6, 17.1487, 83.6, -17.1487, 417, 177, 77.1692, -21.4359, -77.1692, 21.4359, 445, 242, 107.179, -10.7179, -107.179, 10.7179, 143, 308, -72.882, 23.5795, 72.882, -23.5795, 117, 222)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_1kice"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 80, 56, 0, 0, 0, 0, 195, 50, 0, 0, 0, 0, 264, 50, 0, 0, 0, 0, 301, 50, 0, 0, 0, 0, 264, 51, 0, 0, 0, 0, 195, 50, 0, 0, 0, 0, 79, 55, 0, 0, 0, 0, 80, 56)
+}
+point_count = 8
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
@@ -563,6 +593,26 @@ libraries = {
 &"": SubResource("AnimationLibrary_1kice")
 }
 autoplay = "follow_path"
+
+[node name="AlienPath6" type="Path2D" parent="Aliens"]
+position = Vector2(75, 5584)
+curve = SubResource("Curve2D_ca42v")
+
+[node name="AlienPath7" type="Path2D" parent="Aliens"]
+position = Vector2(189, 6307)
+curve = SubResource("Curve2D_rysoc")
+
+[node name="AlienPath8" type="Path2D" parent="Aliens"]
+position = Vector2(175, 6388)
+curve = SubResource("Curve2D_ssvqc")
+
+[node name="AlienPath9" type="Path2D" parent="Aliens"]
+position = Vector2(15, 6504)
+curve = SubResource("Curve2D_264po")
+
+[node name="AlienPath10" type="Path2D" parent="Aliens"]
+position = Vector2(37, 6849)
+curve = SubResource("Curve2D_1kice")
 
 [connection signal="deploy_waystation" from="Submersible" to="." method="_on_submersible_deploy_waystation"]
 [connection signal="energy_update" from="Submersible" to="HUD" method="_on_submersible_energy_update"]
