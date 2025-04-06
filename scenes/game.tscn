@@ -1,15 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=9 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://bc5n4yia0tn43" path="res://assets/Background.png" id="2_gee14"]
 [ext_resource type="PackedScene" uid="uid://d3mquy7bvifif" path="res://scenes/wall.tscn" id="2_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://6m8r3jixkgey" path="res://assets/SmallBlockA.png" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://fbur17pmri2x" path="res://scripts/hud.gd" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://d13tybsnvfos0" path="res://scenes/small_chunk_a.tscn" id="4_u5sy4"]
 [ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dhnwbu4oab6u8" path="res://scenes/ore.tscn" id="7_u5sy4"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(288, 1152)
+texture = ExtResource("2_gee14")
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 2304)
 
 [node name="Submersible" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 1
@@ -40,27 +48,19 @@ scale = Vector2(1, -1)
 [node name="Wall6" parent="Walls" instance=ExtResource("2_yqjtg")]
 position = Vector2(0, 1152)
 
-[node name="SmallBlock" type="StaticBody2D" parent="."]
+[node name="Wall7" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 1728)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 1728)
+
+[node name="SmallChunk" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(228, 286)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallBlock"]
-polygon = PackedVector2Array(-30, -65, -5, -64, 35, 1, 28, 37, 5, 63, -30, 30, -36, -14)
-
-[node name="Sprite2D" type="Sprite2D" parent="SmallBlock"]
-scale = Vector2(0.171, 0.171)
-texture = ExtResource("3_lnu2h")
-
-[node name="SmallBlock2" type="StaticBody2D" parent="."]
-position = Vector2(228, 286)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallBlock2"]
-position = Vector2(170, 184)
-polygon = PackedVector2Array(-30, -65, -5, -64, 35, 1, 28, 37, 5, 63, -30, 30, -36, -14)
-
-[node name="Sprite2D" type="Sprite2D" parent="SmallBlock2"]
-position = Vector2(169, 181)
-scale = Vector2(0.171, 0.171)
-texture = ExtResource("3_lnu2h")
+[node name="SmallChunk2" parent="." instance=ExtResource("4_u5sy4")]
+position = Vector2(349, 377)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4_lbhrr")
@@ -78,7 +78,7 @@ text = "Energy: "
 [node name="Resources" type="Node2D" parent="."]
 
 [node name="Ore" parent="Resources" instance=ExtResource("7_u5sy4")]
-position = Vector2(373, 115)
+position = Vector2(56, 1192)
 
 [node name="Ore2" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(60, 1236)

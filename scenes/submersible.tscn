@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctoh4bphxgdfb" path="res://assets/Waystation.png" id="2_l3wmn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d0ry6"]
-bounce = 0.5
+bounce = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0ry6"]
 radius = 8.06226
