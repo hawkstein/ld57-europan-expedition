@@ -20,3 +20,7 @@ func init_waystation(position:Vector2) -> Area2D:
 
 func energise_submersible(energy:float):
 	submersible.energise_from_waystation(energy)
+
+
+func _on_alien_encounter_area_body_entered(_body: Node2D) -> void:
+	GameManager.encountered_aliens = true

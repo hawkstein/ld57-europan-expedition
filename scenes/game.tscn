@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=36 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
@@ -218,6 +218,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 80, 56, 0, 0, 0, 0, 195, 50, 0, 0, 0, 0, 264, 50, 0, 0, 0, 0, 301, 50, 0, 0, 0, 0, 264, 51, 0, 0, 0, 0, 195, 50, 0, 0, 0, 0, 79, 55, 0, 0, 0, 0, 80, 56)
 }
 point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
+size = Vector2(512.5, 75)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
@@ -615,5 +618,12 @@ curve = SubResource("Curve2D_264po")
 position = Vector2(37, 6849)
 curve = SubResource("Curve2D_1kice")
 
+[node name="AlienEncounterArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlienEncounterArea"]
+position = Vector2(283.75, 2545.5)
+shape = SubResource("RectangleShape2D_kvuet")
+
 [connection signal="deploy_waystation" from="Submersible" to="." method="_on_submersible_deploy_waystation"]
 [connection signal="energy_update" from="Submersible" to="HUD" method="_on_submersible_energy_update"]
+[connection signal="body_entered" from="AlienEncounterArea" to="." method="_on_alien_encounter_area_body_entered"]
