@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://mk0ptdi21mg8"]
+
+[ext_resource type="Texture2D" uid="uid://b6jin4yargp38" path="res://assets/Cavern.png" id="1_ydy2e"]
+
+[node name="CavernSide" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(560, 8, 208, 464, 112, 568, 120, 840, 536, 1088, 856, 1088, 856, 1136, 536, 1144, 64, 872, 56, 536, 512, 8)
+
+[node name="CavernSprite" type="Sprite2D" parent="."]
+position = Vector2(576, 576)
+texture = ExtResource("1_ydy2e")

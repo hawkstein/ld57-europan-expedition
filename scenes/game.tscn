@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=12 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d13tybsnvfos0" path="res://scenes/small_chunk_a.tscn" id="4_u5sy4"]
 [ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dhnwbu4oab6u8" path="res://scenes/ore.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://mqogy0knaff0" path="res://scenes/big_chunk.tscn" id="8_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://yg5sqdl23f51" path="res://assets/Entrance.png" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://mk0ptdi21mg8" path="res://scenes/cavern_side.tscn" id="11_kvpfn"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
@@ -75,6 +78,9 @@ theme_override_fonts/font = ExtResource("5_iywne")
 theme_override_font_sizes/font_size = 8
 text = "Energy: "
 
+[node name="BigChunk" parent="." instance=ExtResource("8_0tnpc")]
+position = Vector2(232, 560)
+
 [node name="Resources" type="Node2D" parent="."]
 
 [node name="Ore" parent="Resources" instance=ExtResource("7_u5sy4")]
@@ -85,6 +91,17 @@ position = Vector2(60, 1236)
 
 [node name="Ore3" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(67, 1288)
+
+[node name="Entrance" type="Sprite2D" parent="."]
+position = Vector2(288, -24)
+texture = ExtResource("10_vtaks")
+
+[node name="CavernSide" parent="." instance=ExtResource("11_kvpfn")]
+position = Vector2(-512, 2296)
+
+[node name="CavernSide2" parent="." instance=ExtResource("11_kvpfn")]
+position = Vector2(1080, 2296)
+scale = Vector2(-1, 1)
 
 [connection signal="deploy_waystation" from="Submersible" to="." method="_on_submersible_deploy_waystation"]
 [connection signal="energy_update" from="Submersible" to="HUD" method="_on_submersible_energy_update"]
