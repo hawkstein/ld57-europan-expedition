@@ -75,7 +75,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ir15t"]
-length = 0.001
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -383,7 +383,7 @@ rotation = -1.5708
 script = ExtResource("4_lbhrr")
 
 [node name="Panel" type="Panel" parent="HUD"]
-offset_right = 175.0
+offset_right = 208.0
 offset_bottom = 40.0
 
 [node name="EnergyLabel" type="Label" parent="HUD"]
@@ -542,6 +542,7 @@ rotation = -3.03851
 libraries = {
 &"": SubResource("AnimationLibrary_ca42v")
 }
+autoplay = "follow_path"
 
 [node name="AlienPath3" type="Path2D" parent="Aliens"]
 position = Vector2(-16, 3544)
