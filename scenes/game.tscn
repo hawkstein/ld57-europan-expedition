@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=30 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dhnwbu4oab6u8" path="res://scenes/ore.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://mqogy0knaff0" path="res://scenes/big_chunk.tscn" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://yg5sqdl23f51" path="res://assets/Entrance.png" id="10_vtaks"]
-[ext_resource type="PackedScene" uid="uid://mk0ptdi21mg8" path="res://scenes/cavern_side.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dgej47xb54qaf" path="res://scenes/alien_uno.tscn" id="12_dinhu"]
 
 [sub_resource type="Curve2D" id="Curve2D_dinhu"]
@@ -43,14 +42,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/path = NodePath(".:progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 0.225313),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [0.0, 627.28]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_trtic"]
@@ -59,15 +58,146 @@ _data = {
 &"follow_path": SubResource("Animation_dinhu")
 }
 
+[sub_resource type="Animation" id="Animation_trtic"]
+resource_name = "follow_path"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [313.637, 627.273, 313.637]
+}
+
+[sub_resource type="Animation" id="Animation_ir15t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [313.637]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ca42v"]
+_data = {
+&"RESET": SubResource("Animation_ir15t"),
+&"follow_path": SubResource("Animation_trtic")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_kvuet"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 464, 160, 0, 0, 0, 0, 152, 192, 0, 0, 0, 0, 464, 160)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_trtic"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3, 2, 0, 0, 0, 0, -1, 49, 0, 0, 0, 0, 10, 117, 0, 0, 0, 0, 63, 186, 0, 0, 0, 0, 111, 191, 0, 0, 0, 0, 152, 166, 0, 0, 0, 0, 164, 113, 0, 0, 0, 0, 145, 51, 0, 0, 0, 0, 113, -5, 0, 0, 0, 0, 49, -32, 0, 0, 0, 0, 3, 2)
+}
+point_count = 11
+
+[sub_resource type="Animation" id="Animation_ca42v"]
+resource_name = "follow_path"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rysoc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rysoc"]
+_data = {
+&"RESET": SubResource("Animation_rysoc"),
+&"follow_path": SubResource("Animation_ca42v")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_ir15t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 49, 11, 0, 0, 0, 0, 19, 39, 0, 0, 0, 0, 6, 81, 0, 0, 0, 0, 10, 133, 0, 0, 0, 0, 26, 159, 0, 0, 0, 0, 74, 167, -12.9773, 24.5885, 12.9773, -24.5885, 116, 123, 0, 0, 0, 0, 127, 73, 0, 0, 0, 0, 129, 32, 0, 0, 0, 0, 115, 9, 0, 0, 0, 0, 49, 11)
+}
+point_count = 11
+
+[sub_resource type="Animation" id="Animation_ssvqc"]
+resource_name = "follow_path"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 463.457]
+}
+
+[sub_resource type="Animation" id="Animation_264po"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kice"]
+_data = {
+&"RESET": SubResource("Animation_264po"),
+&"follow_path": SubResource("Animation_ssvqc")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(288, 2299)
+position = Vector2(288, 4584)
 texture = ExtResource("2_gee14")
 region_enabled = true
-region_rect = Rect2(0, 0, 576, 4608)
+region_rect = Rect2(0, 0, 576, 9216)
 
 [node name="Submersible" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 1
@@ -171,20 +301,69 @@ position = Vector2(579, 1507)
 [node name="RightExtrusion2" parent="Walls" instance=ExtResource("6_trtic")]
 position = Vector2(579, 2659)
 
+[node name="RightExtrusion3" parent="Walls" instance=ExtResource("6_trtic")]
+position = Vector2(579, 6116)
+
 [node name="LeftExtrusion2" parent="Walls" instance=ExtResource("5_kvuet")]
 position = Vector2(-2, 4173)
+
+[node name="LeftExtrusion3" parent="Walls" instance=ExtResource("5_kvuet")]
+position = Vector2(-2, 5901)
+
+[node name="LeftExtrusion4" parent="Walls" instance=ExtResource("5_kvuet")]
+position = Vector2(-2, 6208)
+
+[node name="Wall23" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 6336)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall24" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 6336)
+
+[node name="Wall25" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 6912)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall26" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 6912)
+
+[node name="Wall27" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 7488)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall28" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 7488)
+
+[node name="Wall29" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(576, 8064)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Wall30" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 8064)
+
+[node name="Floor_Temp" parent="Walls" instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 8688)
+rotation = -1.5708
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4_lbhrr")
 
+[node name="Panel" type="Panel" parent="HUD"]
+offset_right = 175.0
+offset_bottom = 40.0
+
 [node name="EnergyLabel" type="Label" parent="HUD"]
 offset_left = 12.0
 offset_top = 10.0
-offset_right = 74.0
+offset_right = 128.0
 offset_bottom = 33.0
 theme_override_colors/font_color = Color(0.992157, 0.996078, 0.537255, 1)
 theme_override_fonts/font = ExtResource("5_iywne")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "Energy: "
 
 [node name="Chunks" type="Node2D" parent="."]
@@ -238,7 +417,7 @@ position = Vector2(224, 5464)
 position = Vector2(136, 5384)
 
 [node name="SmallChunk10" parent="Chunks" instance=ExtResource("4_u5sy4")]
-position = Vector2(416, 5888)
+position = Vector2(436, 5884)
 
 [node name="Resources" type="Node2D" parent="."]
 
@@ -294,13 +473,6 @@ position = Vector2(64, 2360)
 position = Vector2(288, -24)
 texture = ExtResource("10_vtaks")
 
-[node name="CavernSide" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(944, 2280)
-
-[node name="CavernSide2" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(2536, 2280)
-scale = Vector2(-1, 1)
-
 [node name="Aliens" type="Node2D" parent="."]
 
 [node name="AlienPath1" type="Path2D" parent="Aliens"]
@@ -327,8 +499,9 @@ position = Vector2(-48, 3360)
 curve = SubResource("Curve2D_dinhu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath2"]
-position = Vector2(464, 160)
+position = Vector2(152, 192)
 rotation = 3.03851
+progress = 313.637
 rotates = false
 
 [node name="AlienUno" parent="Aliens/AlienPath2/PathFollow2D" instance=ExtResource("12_dinhu")]
@@ -337,13 +510,12 @@ rotation = -3.03851
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath2/PathFollow2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_trtic")
+&"": SubResource("AnimationLibrary_ca42v")
 }
-autoplay = "follow_path"
 
 [node name="AlienPath3" type="Path2D" parent="Aliens"]
 position = Vector2(-16, 3544)
-curve = SubResource("Curve2D_dinhu")
+curve = SubResource("Curve2D_kvuet")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath3"]
 position = Vector2(464, 160)
@@ -357,6 +529,38 @@ rotation = -3.03851
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath3/PathFollow2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_trtic")
+}
+autoplay = "follow_path"
+
+[node name="AlienPath4" type="Path2D" parent="Aliens"]
+position = Vector2(126, 4443)
+curve = SubResource("Curve2D_trtic")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath4"]
+position = Vector2(3, 2)
+rotates = false
+
+[node name="AlienUno" parent="Aliens/AlienPath4/PathFollow2D" instance=ExtResource("12_dinhu")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath4/PathFollow2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_rysoc")
+}
+autoplay = "follow_path"
+
+[node name="AlienPath5" type="Path2D" parent="Aliens"]
+position = Vector2(333, 4878)
+curve = SubResource("Curve2D_ir15t")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath5"]
+position = Vector2(49, 11)
+rotates = false
+
+[node name="AlienUno" parent="Aliens/AlienPath5/PathFollow2D" instance=ExtResource("12_dinhu")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath5/PathFollow2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_1kice")
 }
 autoplay = "follow_path"
 
