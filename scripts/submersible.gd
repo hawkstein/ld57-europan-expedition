@@ -20,6 +20,7 @@ var keep_asleep := false
 @onready var enable_deploy_player: AudioStreamPlayer2D = $EnableDeployPlayer
 @onready var disable_deploy_player: AudioStreamPlayer2D = $DisableDeployPlayer
 @onready var waystation_sprite: Sprite2D = $WaystationSprite
+@onready var death_timer: Timer = $DeathTimer
 
 func enable_waystation():
 	can_deploy = true
@@ -30,7 +31,12 @@ func remove_energy(amount:float) -> void:
 	energy -= amount
 	emit_signal("energy_update", energy)
 	if energy <= 0 and controllable:
-		call_deferred("change_to_interlude")
+		controllable = false
+		keep_asleep = true
+		death_timer.start()
+
+func _on_death_timer_timeout() -> void:
+	call_deferred("change_to_interlude")
 
 func change_to_interlude():
 	get_tree().change_scene_to_file("res://scenes/interlude.tscn")

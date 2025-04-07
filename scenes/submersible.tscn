@@ -76,4 +76,9 @@ amount = 5
 texture = ExtResource("7_uqmxf")
 process_material = SubResource("ParticleProcessMaterial_i4g8l")
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

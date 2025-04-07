@@ -33,7 +33,7 @@ func get_intro() -> String:
 			return "The structural integrity of the surface connection continues to fail. We estimate {0} days until collapse.".format([day_limit - day])
 
 func get_message() -> String:
-	const alien_msg = "We have encountered alien life! It is does not seem intelligent or hostile."
+	const alien_msg = "We have encountered alien life! It does not seem intelligent or hostile."
 	if ruins_discovered:
 		"These alien ruins... the life we've encountered so far has not seemed intelligent."
 	if connection_collapsed:
