@@ -18,10 +18,9 @@ func _ready() -> void:
 	for ore in resources.get_children():
 		#print("Ore Id: {0} Ore: {1}".format([ore.ore_id, resources.get_path_to(ore)]))
 		if "ore_id" in ore and GameManager.collected_ores.find(ore.ore_id) >= 0:
-			print("Removing {0}".format([resources.get_path_to(ore)]))
+			#print("Removing {0}".format([resources.get_path_to(ore)]))
 			resources.remove_child(ore)
 			ore.queue_free()
-	print("----------")
 
 func _on_submersible_deploy_waystation(station_position: Vector2) -> void:
 	call_deferred("init_waystation", station_position)
