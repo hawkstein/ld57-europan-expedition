@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://v5rodv1kbjaq"]
 
-[ext_resource type="AudioStream" uid="uid://dxy4mjt6ck2t2" path="res://sounds/Descent Into Europa v1 Loop - 05:04:2025, 21.41.mp3" id="1_05ggv"]
+[ext_resource type="AudioStream" uid="uid://b52o8pipvf2dk" path="res://sounds/LD57 - Descent Into Europa - 07:04:2025, 15.50.mp3" id="1_05ggv"]
 
 [node name="Music" type="Node2D"]
 

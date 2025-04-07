@@ -27,6 +27,7 @@ text = "The titan before you reveals that these are all alien machines, the tool
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 312.0
 offset_right = 544.0
@@ -41,6 +42,7 @@ That's beyond the scope of this game! Thanks for playing and well done for makin
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 224.0
 offset_right = 544.0

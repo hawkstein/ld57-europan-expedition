@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b52o8pipvf2dk"
+path="res://.godot/imported/LD57 - Descent Into Europa - 07:04:2025, 15.50.mp3-544ba5a491305f71fff15e34d5ba7b39.mp3str"
+
+[deps]
+
+source_file="res://sounds/LD57 - Descent Into Europa - 07:04:2025, 15.50.mp3"
+dest_files=["res://.godot/imported/LD57 - Descent Into Europa - 07:04:2025, 15.50.mp3-544ba5a491305f71fff15e34d5ba7b39.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

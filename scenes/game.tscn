@@ -541,43 +541,33 @@ texture = ExtResource("10_vtaks")
 
 [node name="AlienUno" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(369, 3067)
-scale = Vector2(1, 1)
 
 [node name="AlienUno2" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(437, 3084)
-scale = Vector2(1, 1)
 
 [node name="AlienUno3" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(124, 3461)
-scale = Vector2(1, 1)
 
 [node name="AlienUno4" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(209, 3509)
-scale = Vector2(1, 1)
 
 [node name="AlienUno5" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(477, 6340)
-scale = Vector2(1, 1)
 
 [node name="AlienUno10" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(480, 6959)
-scale = Vector2(1, 1)
 
 [node name="AlienUno6" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(463, 6271)
-scale = Vector2(1, 1)
 
 [node name="AlienUno7" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(109, 6394)
-scale = Vector2(1, 1)
 
 [node name="AlienUno9" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(92, 7056)
-scale = Vector2(1, 1)
 
 [node name="AlienUno8" parent="StaticAliens" instance=ExtResource("12_dinhu")]
 position = Vector2(445, 6042)
-scale = Vector2(1, 1)
 
 [node name="Aliens" type="Node2D" parent="."]
 
