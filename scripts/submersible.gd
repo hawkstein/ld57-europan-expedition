@@ -12,6 +12,8 @@ var max_energy := 40
 signal deploy_waystation(position)
 var can_deploy := false
 var deploy_mode := false
+var controllable := true
+var keep_asleep := false
 @onready var waystation: Sprite2D = $WaystationSprite
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var dink_player: AudioStreamPlayer2D = $DinkPlayer
@@ -27,7 +29,7 @@ func enable_waystation():
 func remove_energy(amount:float) -> void:
 	energy -= amount
 	emit_signal("energy_update", energy)
-	if energy <= 0:
+	if energy <= 0 and controllable:
 		call_deferred("change_to_interlude")
 
 func change_to_interlude():
@@ -43,6 +45,10 @@ func _process(delta: float) -> void:
 			disable_deploy_player.play()
 
 func _integrate_forces(state):
+	if not controllable:
+		if not keep_asleep:
+			state.apply_force(VERTICAL_THRUST)
+		return
 	var slow_down = Input.is_action_pressed("thrust_up")
 	if slow_down:
 		state.apply_force(VERTICAL_THRUST * -1)
@@ -69,3 +75,6 @@ func _on_body_shape_entered(_body_rid: RID, _body: Node, _body_shape_index: int,
 		
 func energise_from_waystation(amount:float) -> void:
 	energy = minf(energy + amount, max_energy)
+	
+func make_uncontrollable() -> void:
+	controllable = false

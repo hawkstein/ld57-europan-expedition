@@ -10,7 +10,7 @@ func _ready() -> void:
 	day_label.text = GameManager.get_day()
 
 func _on_submersible_energy_update(energy: float) -> void:
-	energy_label.text = "Energy: "+str(energy).pad_decimals(1)
+	energy_label.text = "Energy: "+str(maxf(energy, 0)).pad_decimals(1)
 	if (energy <= 10):
 		pass #change colour to red else back to yellow
 		

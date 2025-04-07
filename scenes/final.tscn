@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi5uys4kfaxfn"]
+
+[ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="1_4pp6u"]
+
+[node name="Final" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 576.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 544.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("1_4pp6u")
+theme_override_font_sizes/font_size = 16
+text = "The titan before you reveals that these are all alien machines, the tools a species from a distant point in the galaxy explores worlds of great pressure that might be habitable by their kind who live deep in the pressured depths."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Panel"]
+offset_left = 48.0
+offset_top = 312.0
+offset_right = 544.0
+offset_bottom = 518.0
+theme_override_fonts/font = ExtResource("1_4pp6u")
+theme_override_font_sizes/font_size = 16
+text = "It is a caretaker intelligence, left behind to monitor the gate beyond. It can help you return to Earth or you can journey to these other worlds.
+
+One final decision...
+
+That's beyond the scope of this game! Thanks for playing and well done for making it to the end!"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Panel"]
+offset_left = 48.0
+offset_top = 224.0
+offset_right = 544.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("1_4pp6u")
+theme_override_font_sizes/font_size = 16
+text = "The tunnel was from their expeditions to the surface eons ago."
+autowrap_mode = 2

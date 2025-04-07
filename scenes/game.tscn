@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://datbrd16t7lty"]
+[gd_scene load_steps=44 format=3 uid="uid://datbrd16t7lty"]
 
 [ext_resource type="Script" uid="uid://dd7fbs37qni4j" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b2spppmyrh54x" path="res://scenes/submersible.tscn" id="1_uwrxv"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://mqogy0knaff0" path="res://scenes/big_chunk.tscn" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://yg5sqdl23f51" path="res://assets/Entrance.png" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dgej47xb54qaf" path="res://scenes/alien_uno.tscn" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://dcgughtklsyug" path="res://assets/CaretakerArm.png" id="14_ca42v"]
+[ext_resource type="Texture2D" uid="uid://xgc72xgw6bgf" path="res://assets/CaretakerHead.png" id="15_rysoc"]
+[ext_resource type="Texture2D" uid="uid://cw0c30wklycw2" path="res://assets/Caretaker-EyeSheet.png" id="16_ssvqc"]
 
 [sub_resource type="Curve2D" id="Curve2D_dinhu"]
 _data = {
@@ -56,43 +59,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_kvuet"),
 &"follow_path": SubResource("Animation_dinhu")
-}
-
-[sub_resource type="Animation" id="Animation_ir15t"]
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [313.637]
-}
-
-[sub_resource type="Animation" id="Animation_trtic"]
-resource_name = "follow_path"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 10),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [313.637, 627.273, 313.637]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ca42v"]
-_data = {
-&"RESET": SubResource("Animation_ir15t"),
-&"follow_path": SubResource("Animation_trtic")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_kvuet"]
@@ -222,6 +188,59 @@ point_count = 8
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
 size = Vector2(512.5, 75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
+size = Vector2(586, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
+atlas = ExtResource("16_ssvqc")
+region = Rect2(0, 0, 18, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
+atlas = ExtResource("16_ssvqc")
+region = Rect2(18, 0, 18, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5newe"]
+atlas = ExtResource("16_ssvqc")
+region = Rect2(36, 0, 18, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37s47"]
+atlas = ExtResource("16_ssvqc")
+region = Rect2(54, 0, 18, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt5mj"]
+atlas = ExtResource("16_ssvqc")
+region = Rect2(36, 0, 18, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1j6l"]
+atlas = ExtResource("16_ssvqc")
+region = Rect2(18, 0, 18, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pl11u"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_264po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kice")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5newe")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_37s47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt5mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1j6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
 
@@ -234,7 +253,7 @@ region_rect = Rect2(0, 0, 576, 9216)
 
 [node name="Submersible" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 1
-position = Vector2(287, 118)
+position = Vector2(283, 131)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -362,24 +381,8 @@ scale = Vector2(1, -1)
 [node name="Wall26" parent="Walls" instance=ExtResource("2_yqjtg")]
 position = Vector2(0, 6912)
 
-[node name="Wall27" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(576, 7488)
-rotation = 3.14159
-scale = Vector2(1, -1)
-
-[node name="Wall28" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(0, 7488)
-
-[node name="Wall29" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(576, 8064)
-rotation = 3.14159
-scale = Vector2(1, -1)
-
-[node name="Wall30" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(0, 8064)
-
 [node name="Floor_Temp" parent="Walls" instance=ExtResource("2_yqjtg")]
-position = Vector2(0, 8688)
+position = Vector2(0, 7493)
 rotation = -1.5708
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -429,6 +432,9 @@ position = Vector2(412, 395)
 [node name="BigChunk" parent="Chunks" instance=ExtResource("8_0tnpc")]
 position = Vector2(267, 579)
 
+[node name="BigChunk8" parent="Chunks" instance=ExtResource("8_0tnpc")]
+position = Vector2(164, 1338)
+
 [node name="SmallChunk3" parent="Chunks" instance=ExtResource("4_u5sy4")]
 position = Vector2(221, 1054)
 
@@ -458,6 +464,12 @@ position = Vector2(443, 2289)
 
 [node name="SmallChunk6" parent="Chunks" instance=ExtResource("4_u5sy4")]
 position = Vector2(399, 2580)
+
+[node name="SmallChunk11" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(268, 3593)
+
+[node name="SmallChunk12" parent="Chunks" instance=ExtResource("4_u5sy4")]
+position = Vector2(205, 3830)
 
 [node name="SmallChunk7" parent="Chunks" instance=ExtResource("4_u5sy4")]
 position = Vector2(276, 5328)
@@ -525,6 +537,48 @@ position = Vector2(64, 2360)
 position = Vector2(288, -24)
 texture = ExtResource("10_vtaks")
 
+[node name="StaticAliens" type="Node2D" parent="."]
+
+[node name="AlienUno" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(369, 3067)
+scale = Vector2(1, 1)
+
+[node name="AlienUno2" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(437, 3084)
+scale = Vector2(1, 1)
+
+[node name="AlienUno3" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(124, 3461)
+scale = Vector2(1, 1)
+
+[node name="AlienUno4" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(209, 3509)
+scale = Vector2(1, 1)
+
+[node name="AlienUno5" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(477, 6340)
+scale = Vector2(1, 1)
+
+[node name="AlienUno10" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(480, 6959)
+scale = Vector2(1, 1)
+
+[node name="AlienUno6" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(463, 6271)
+scale = Vector2(1, 1)
+
+[node name="AlienUno7" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(109, 6394)
+scale = Vector2(1, 1)
+
+[node name="AlienUno9" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(92, 7056)
+scale = Vector2(1, 1)
+
+[node name="AlienUno8" parent="StaticAliens" instance=ExtResource("12_dinhu")]
+position = Vector2(445, 6042)
+scale = Vector2(1, 1)
+
 [node name="Aliens" type="Node2D" parent="."]
 
 [node name="AlienPath1" type="Path2D" parent="Aliens"]
@@ -543,26 +597,6 @@ rotation = -3.03851
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath1/PathFollow2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_trtic")
-}
-autoplay = "follow_path"
-
-[node name="AlienPath2" type="Path2D" parent="Aliens"]
-position = Vector2(-48, 3360)
-curve = SubResource("Curve2D_dinhu")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath2"]
-position = Vector2(152, 192)
-rotation = 3.03851
-progress = 313.637
-rotates = false
-
-[node name="AlienUno" parent="Aliens/AlienPath2/PathFollow2D" instance=ExtResource("12_dinhu")]
-position = Vector2(0, -2.86102e-06)
-rotation = -3.03851
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Aliens/AlienPath2/PathFollow2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_ca42v")
 }
 autoplay = "follow_path"
 
@@ -622,19 +656,19 @@ position = Vector2(75, 5584)
 curve = SubResource("Curve2D_ca42v")
 
 [node name="AlienPath7" type="Path2D" parent="Aliens"]
-position = Vector2(189, 6307)
+position = Vector2(186, 4070)
 curve = SubResource("Curve2D_rysoc")
 
 [node name="AlienPath8" type="Path2D" parent="Aliens"]
-position = Vector2(175, 6388)
+position = Vector2(277, 4608)
 curve = SubResource("Curve2D_ssvqc")
 
 [node name="AlienPath9" type="Path2D" parent="Aliens"]
-position = Vector2(15, 6504)
+position = Vector2(6, 4952)
 curve = SubResource("Curve2D_264po")
 
 [node name="AlienPath10" type="Path2D" parent="Aliens"]
-position = Vector2(37, 6849)
+position = Vector2(17, 4821)
 curve = SubResource("Curve2D_1kice")
 
 [node name="AlienEncounterArea" type="Area2D" parent="."]
@@ -646,6 +680,90 @@ collision_mask = 8
 position = Vector2(283.75, 2545.5)
 shape = SubResource("RectangleShape2D_kvuet")
 
+[node name="FinalEncounterArea" type="Area2D" parent="."]
+position = Vector2(0, 6805)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalEncounterArea"]
+position = Vector2(284, -130)
+shape = SubResource("RectangleShape2D_trtic")
+
+[node name="FinalTimer" type="Timer" parent="FinalEncounterArea"]
+wait_time = 11.0
+one_shot = true
+
+[node name="SceneChangeTimer" type="Timer" parent="FinalEncounterArea"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Caretaker" type="Node2D" parent="."]
+position = Vector2(301, 7341)
+
+[node name="Arm1" type="Sprite2D" parent="Caretaker"]
+position = Vector2(-67, -115)
+texture = ExtResource("14_ca42v")
+
+[node name="Arm2" type="Sprite2D" parent="Caretaker"]
+position = Vector2(-148, -79)
+texture = ExtResource("14_ca42v")
+
+[node name="Arm3" type="Sprite2D" parent="Caretaker"]
+position = Vector2(18, -106)
+texture = ExtResource("14_ca42v")
+
+[node name="Arm4" type="Sprite2D" parent="Caretaker"]
+position = Vector2(122, -101)
+texture = ExtResource("14_ca42v")
+
+[node name="LeftBody" type="Sprite2D" parent="Caretaker"]
+position = Vector2(-99, 37)
+texture = ExtResource("15_rysoc")
+
+[node name="RightBody" type="Sprite2D" parent="Caretaker"]
+position = Vector2(102, 35)
+scale = Vector2(-1, 1)
+texture = ExtResource("15_rysoc")
+
+[node name="Eye1" type="AnimatedSprite2D" parent="Caretaker"]
+position = Vector2(-19, -10)
+sprite_frames = SubResource("SpriteFrames_pl11u")
+autoplay = "default"
+frame_progress = 0.458261
+
+[node name="Eye2" type="AnimatedSprite2D" parent="Caretaker"]
+position = Vector2(19, -42)
+sprite_frames = SubResource("SpriteFrames_pl11u")
+autoplay = "default"
+frame_progress = 0.652502
+
+[node name="Eye3" type="AnimatedSprite2D" parent="Caretaker"]
+position = Vector2(59, 50)
+sprite_frames = SubResource("SpriteFrames_pl11u")
+autoplay = "default"
+frame_progress = 0.652502
+
+[node name="Eye4" type="AnimatedSprite2D" parent="Caretaker"]
+position = Vector2(-38, 61)
+sprite_frames = SubResource("SpriteFrames_pl11u")
+autoplay = "default"
+frame_progress = 0.652502
+
+[node name="Eye5" type="AnimatedSprite2D" parent="Caretaker"]
+position = Vector2(-92, -22)
+sprite_frames = SubResource("SpriteFrames_pl11u")
+autoplay = "default"
+frame_progress = 0.652502
+
+[node name="Eye6" type="AnimatedSprite2D" parent="Caretaker"]
+position = Vector2(106, -12)
+sprite_frames = SubResource("SpriteFrames_pl11u")
+autoplay = "default"
+frame_progress = 0.652502
+
 [connection signal="deploy_waystation" from="Submersible" to="." method="_on_submersible_deploy_waystation"]
 [connection signal="energy_update" from="Submersible" to="HUD" method="_on_submersible_energy_update"]
 [connection signal="body_entered" from="AlienEncounterArea" to="." method="_on_alien_encounter_area_body_entered"]
+[connection signal="body_entered" from="FinalEncounterArea" to="." method="_on_final_encounter_body_entered"]
+[connection signal="timeout" from="FinalEncounterArea/FinalTimer" to="." method="_on_final_timer_timeout"]
+[connection signal="timeout" from="FinalEncounterArea/SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]

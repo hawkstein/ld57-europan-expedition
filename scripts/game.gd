@@ -27,3 +27,22 @@ func energise_submersible(energy:float):
 
 func _on_alien_encounter_area_body_entered(_body: Node2D) -> void:
 	GameManager.encountered_aliens = true
+
+@onready var final_timer: Timer = $FinalEncounterArea/FinalTimer
+@onready var scene_change_timer: Timer = $FinalEncounterArea/SceneChangeTimer
+
+func _on_final_encounter_body_entered(_body: Node2D) -> void:
+	print("final encounter started")
+	final_timer.start()
+	submersible.make_uncontrollable()
+
+const FINAL = preload("res://scenes/final.tscn")
+
+func _on_final_timer_timeout() -> void:
+	print("scene encounter started")
+	submersible.keep_asleep = true
+	submersible.sleeping = true
+	scene_change_timer.start()
+
+func _on_scene_change_timer_timeout() -> void:
+	get_tree().change_scene_to_packed(FINAL)

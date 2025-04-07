@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2spppmyrh54x"]
+[gd_scene load_steps=13 format=3 uid="uid://b2spppmyrh54x"]
 
 [ext_resource type="Script" uid="uid://54utm1icvmwt" path="res://scripts/submersible.gd" id="1_d0ry6"]
 [ext_resource type="Texture2D" uid="uid://drxtdl8oxvyxm" path="res://assets/MiniSubmersible.png" id="1_sakq6"]
@@ -6,12 +6,27 @@
 [ext_resource type="AudioStream" uid="uid://bpqdx4kckbq41" path="res://sounds/dink.wav" id="4_4u20y"]
 [ext_resource type="AudioStream" uid="uid://myyxyim5q41a" path="res://sounds/bip.wav" id="5_83rfp"]
 [ext_resource type="AudioStream" uid="uid://dtqxksos80dbm" path="res://sounds/blip.wav" id="6_uqmxf"]
+[ext_resource type="Texture2D" uid="uid://caihbux8u8jiu" path="res://assets/Bubble.png" id="7_uqmxf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d0ry6"]
 bounce = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0ry6"]
 radius = 9.0
+
+[sub_resource type="Curve" id="Curve_jhua7"]
+_data = [Vector2(0, 0.393258), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_npvfg"]
+curve = SubResource("Curve_jhua7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i4g8l"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0.025, 0, 0)
+gravity = Vector3(0, -50, 0)
+scale_curve = SubResource("CurveTexture_npvfg")
+turbulence_noise_strength = 4.37
 
 [node name="Submersible" type="RigidBody2D"]
 editor_description = "Player submersible"
@@ -48,5 +63,17 @@ stream = ExtResource("5_83rfp")
 
 [node name="DisableDeployPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_uqmxf")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-10, 4)
+amount = 5
+texture = ExtResource("7_uqmxf")
+process_material = SubResource("ParticleProcessMaterial_i4g8l")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(10, 4)
+amount = 5
+texture = ExtResource("7_uqmxf")
+process_material = SubResource("ParticleProcessMaterial_i4g8l")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
