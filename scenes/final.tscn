@@ -15,39 +15,51 @@ layout_mode = 0
 offset_right = 576.0
 offset_bottom = 576.0
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 48.0
-offset_top = 24.0
-offset_right = 544.0
-offset_bottom = 173.0
+offset_top = 32.0
+offset_right = 528.0
+offset_bottom = 375.0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("1_4pp6u")
 theme_override_font_sizes/font_size = 16
-text = "The titan before you reveals that these are all alien machines, the tools a species from a distant point in the galaxy explores worlds of great pressure that might be habitable by their kind who live deep in the pressured depths."
+text = "The giant alien before you reveals that these are all alien machines."
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 312.0
-offset_right = 544.0
-offset_bottom = 518.0
+[node name="Label4" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_4pp6u")
 theme_override_font_sizes/font_size = 16
-text = "It is a caretaker intelligence, left behind to monitor the gate beyond. It can help you return to Earth or you can journey to these other worlds.
-
-One final decision...
-
-That's beyond the scope of this game! Thanks for playing and well done for making it to the end!"
+text = "They are the tools a species from a distant point in the galaxy explores worlds like Europa where oceanic pressures mimic their home."
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 224.0
-offset_right = 544.0
-offset_bottom = 278.0
+[node name="Label3" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = 5
 theme_override_fonts/font = ExtResource("1_4pp6u")
 theme_override_font_sizes/font_size = 16
 text = "The tunnel was from their expeditions to the surface eons ago."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("1_4pp6u")
+theme_override_font_sizes/font_size = 16
+text = "It is a caretaker, left behind to monitor the wormhole beyond. 
+
+One final decision...
+
+It can help you return to Earth or you can journey to these other worlds.
+
+But that's beyond the scope of this game! Thanks for playing and well done for making it to the end!"
 autowrap_mode = 2

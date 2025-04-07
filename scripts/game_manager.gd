@@ -28,7 +28,7 @@ func get_intro() -> String:
 		5:
 			if not encountered_aliens:
 				return "The connection to the surface will collapse within hours. We must escape."
-			return "The connection to the surface will collapse within hours. We are faced with a choice. Any discoveries can be transmitted even if we can no longer return."
+			return "The connection to the surface will collapse within hours. We are faced with a choice."
 		_:
 			return "The structural integrity of the surface connection continues to fail. We estimate {0} days until collapse.".format([day_limit - day])
 
