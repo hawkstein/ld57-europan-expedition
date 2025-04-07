@@ -6,9 +6,6 @@ extends Control
 @onready var button_one: Button = $VBoxContainer/ButtonOne
 @onready var button_two: Button = $VBoxContainer/ButtonTwo
 
-#const FORGE = preload("res://scenes/forge.tscn")
-const GAME = preload("res://scenes/game.tscn")
-
 func _ready() -> void:
 	day.text = GameManager.get_day()
 	intro.text = GameManager.get_intro()
@@ -21,5 +18,4 @@ func _ready() -> void:
 		button_two.visible = false
 
 func _on_continue_pressed() -> void:
-	GameManager.day += 1
-	get_tree().change_scene_to_packed(GAME)
+	GameManager.next_day()

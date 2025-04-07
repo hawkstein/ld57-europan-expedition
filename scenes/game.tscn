@@ -513,7 +513,7 @@ position = Vector2(-16, 2800)
 curve = SubResource("Curve2D_dinhu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath1"]
-position = Vector2(464, 160)
+position = Vector2(463.997, 160)
 rotation = 3.03851
 rotates = false
 
@@ -587,7 +587,7 @@ position = Vector2(333, 4878)
 curve = SubResource("Curve2D_ir15t")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath5"]
-position = Vector2(49, 11)
+position = Vector2(15.8972, 142.583)
 rotates = false
 
 [node name="AlienUno" parent="Aliens/AlienPath5/PathFollow2D" instance=ExtResource("12_dinhu")]
@@ -619,6 +619,7 @@ position = Vector2(37, 6849)
 curve = SubResource("Curve2D_1kice")
 
 [node name="AlienEncounterArea" type="Area2D" parent="."]
+position = Vector2(6, 169)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlienEncounterArea"]
 position = Vector2(283.75, 2545.5)

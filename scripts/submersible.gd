@@ -18,7 +18,10 @@ func remove_energy(amount:float) -> void:
 	energy -= amount
 	emit_signal("energy_update", energy)
 	if energy <= 0:
-		get_tree().change_scene_to_file("res://scenes/interlude.tscn")
+		call_deferred("change_to_interlude")
+
+func change_to_interlude():
+	get_tree().change_scene_to_file("res://scenes/interlude.tscn")
 
 func _process(delta: float) -> void:
 	remove_energy(tick_loss * delta)
