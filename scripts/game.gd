@@ -15,7 +15,7 @@ func _on_submersible_deploy_waystation(station_position: Vector2) -> void:
 func init_waystation(station_position:Vector2) -> Area2D:
 	var station = WAYSTATION.instantiate()
 	add_child(station)
-	station.global_position = station_position
+	station.global_position = snapped(station_position, Vector2(1,1))
 	return station
 
 func energise_submersible(energy:float):

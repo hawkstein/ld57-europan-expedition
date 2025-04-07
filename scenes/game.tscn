@@ -58,6 +58,21 @@ _data = {
 &"follow_path": SubResource("Animation_dinhu")
 }
 
+[sub_resource type="Animation" id="Animation_ir15t"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [313.637]
+}
+
 [sub_resource type="Animation" id="Animation_trtic"]
 resource_name = "follow_path"
 length = 10.0
@@ -72,21 +87,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [313.637, 627.273, 313.637]
-}
-
-[sub_resource type="Animation" id="Animation_ir15t"]
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [313.637]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ca42v"]
@@ -107,6 +107,21 @@ _data = {
 }
 point_count = 11
 
+[sub_resource type="Animation" id="Animation_rysoc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_ca42v"]
 resource_name = "follow_path"
 length = 6.0
@@ -124,21 +139,6 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_rysoc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rysoc"]
 _data = {
 &"RESET": SubResource("Animation_rysoc"),
@@ -150,6 +150,21 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 49, 11, 0, 0, 0, 0, 19, 39, 0, 0, 0, 0, 6, 81, 0, 0, 0, 0, 10, 133, 0, 0, 0, 0, 26, 159, 0, 0, 0, 0, 74, 167, -12.9773, 24.5885, 12.9773, -24.5885, 116, 123, 0, 0, 0, 0, 127, 73, 0, 0, 0, 0, 129, 32, 0, 0, 0, 0, 115, 9, 0, 0, 0, 0, 49, 11)
 }
 point_count = 11
+
+[sub_resource type="Animation" id="Animation_264po"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ssvqc"]
 resource_name = "follow_path"
@@ -166,21 +181,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 463.457]
-}
-
-[sub_resource type="Animation" id="Animation_264po"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1kice"]
@@ -513,7 +513,7 @@ position = Vector2(-16, 2800)
 curve = SubResource("Curve2D_dinhu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath1"]
-position = Vector2(463.997, 160)
+position = Vector2(464, 160)
 rotation = 3.03851
 rotates = false
 
@@ -587,7 +587,7 @@ position = Vector2(333, 4878)
 curve = SubResource("Curve2D_ir15t")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath5"]
-position = Vector2(15.8972, 142.583)
+position = Vector2(49, 11)
 rotates = false
 
 [node name="AlienUno" parent="Aliens/AlienPath5/PathFollow2D" instance=ExtResource("12_dinhu")]

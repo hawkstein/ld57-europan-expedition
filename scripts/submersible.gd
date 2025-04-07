@@ -12,7 +12,12 @@ var max_energy := 40
 signal deploy_waystation(position)
 var can_deploy := true
 var deploy_mode := false
-@onready var waystation: Sprite2D = $Waystation
+@onready var waystation: Sprite2D = $WaystationSprite
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+func _ready() -> void:
+	if can_deploy:
+		collision_shape_2d.shape.radius = 15
 
 func remove_energy(amount:float) -> void:
 	energy -= amount
@@ -38,10 +43,6 @@ func _integrate_forces(state):
 
 
 func _on_body_shape_entered(_body_rid: RID, _body: Node, _body_shape_index: int, _local_shape_index: int) -> void:
-	remove_energy(contact_loss)
-
-
-func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if deploy_mode:
 		waystation.visible = false
 		can_deploy = false
@@ -49,7 +50,10 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		GameManager.add_waystation(global_position)
 		energise_from_waystation(max_energy)
 		sleeping = true
+		collision_shape_2d.shape.radius = 9
 		emit_signal("deploy_waystation", global_position)
+	#remove_energy(contact_loss)
+	
 		
 func energise_from_waystation(amount:float) -> void:
 	energy = minf(energy + amount, max_energy)
