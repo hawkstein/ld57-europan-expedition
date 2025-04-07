@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf5vdc3wy282e"]
+[gd_scene load_steps=5 format=3 uid="uid://cf5vdc3wy282e"]
 
 [ext_resource type="Script" uid="uid://2qofjd6mhyej" path="res://scripts/waystation.gd" id="1_6rwgr"]
 [ext_resource type="Texture2D" uid="uid://ctoh4bphxgdfb" path="res://assets/Waystation.png" id="1_nyjse"]
+[ext_resource type="AudioStream" uid="uid://bdngg6m4q418p" path="res://sounds/energise2.wav" id="3_ijuj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nyjse"]
 radius = 16.0
@@ -16,5 +17,8 @@ shape = SubResource("CircleShape2D_nyjse")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nyjse")
+
+[node name="EnergisePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ijuj0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

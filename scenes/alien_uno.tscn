@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgej47xb54qaf"]
+[gd_scene load_steps=12 format=3 uid="uid://dgej47xb54qaf"]
 
 [ext_resource type="Texture2D" uid="uid://dypymobxm4705" path="res://assets/AlienUno.png" id="1_aw6t1"]
 [ext_resource type="Script" uid="uid://5tcwmn62x51o" path="res://scripts/alien_uno.gd" id="1_ljb4o"]
+[ext_resource type="AudioStream" uid="uid://hdabujulhrm5" path="res://sounds/power_down.wav" id="3_wom87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ljb4o"]
 radius = 14.0
@@ -159,5 +160,8 @@ lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ljb4o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wom87")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

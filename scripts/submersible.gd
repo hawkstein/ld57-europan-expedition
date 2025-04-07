@@ -14,6 +14,9 @@ var can_deploy := true
 var deploy_mode := false
 @onready var waystation: Sprite2D = $WaystationSprite
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var dink_player: AudioStreamPlayer2D = $DinkPlayer
+@onready var enable_deploy_player: AudioStreamPlayer2D = $EnableDeployPlayer
+@onready var disable_deploy_player: AudioStreamPlayer2D = $DisableDeployPlayer
 
 func _ready() -> void:
 	if can_deploy:
@@ -32,6 +35,10 @@ func _process(delta: float) -> void:
 	remove_energy(tick_loss * delta)
 	if can_deploy and Input.is_action_just_pressed("deploy_waystation"):
 		deploy_mode = !deploy_mode
+		if deploy_mode:
+			enable_deploy_player.play()
+		else:
+			disable_deploy_player.play()
 
 func _integrate_forces(state):
 	var vertical_direction = Input.get_axis("thrust_up", "thrust_down")
@@ -48,11 +55,12 @@ func _on_body_shape_entered(_body_rid: RID, _body: Node, _body_shape_index: int,
 		can_deploy = false
 		deploy_mode = false
 		GameManager.add_waystation(global_position)
-		energise_from_waystation(max_energy)
+		energise_from_waystation(20)
 		sleeping = true
 		collision_shape_2d.shape.radius = 9
 		emit_signal("deploy_waystation", global_position)
-	#remove_energy(contact_loss)
+	else:
+		dink_player.play()
 	
 		
 func energise_from_waystation(amount:float) -> void:

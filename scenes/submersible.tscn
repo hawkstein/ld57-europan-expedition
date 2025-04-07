@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2spppmyrh54x"]
+[gd_scene load_steps=9 format=3 uid="uid://b2spppmyrh54x"]
 
 [ext_resource type="Script" uid="uid://54utm1icvmwt" path="res://scripts/submersible.gd" id="1_d0ry6"]
 [ext_resource type="Texture2D" uid="uid://drxtdl8oxvyxm" path="res://assets/MiniSubmersible.png" id="1_sakq6"]
 [ext_resource type="Texture2D" uid="uid://ctoh4bphxgdfb" path="res://assets/Waystation.png" id="2_l3wmn"]
+[ext_resource type="AudioStream" uid="uid://bpqdx4kckbq41" path="res://sounds/dink.wav" id="4_4u20y"]
+[ext_resource type="AudioStream" uid="uid://myyxyim5q41a" path="res://sounds/bip.wav" id="5_83rfp"]
+[ext_resource type="AudioStream" uid="uid://dtqxksos80dbm" path="res://sounds/blip.wav" id="6_uqmxf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d0ry6"]
 bounce = 0.7
@@ -35,5 +38,14 @@ limit_left = -100
 limit_right = 680
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="DinkPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4u20y")
+
+[node name="EnableDeployPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_83rfp")
+
+[node name="DisableDeployPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_uqmxf")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
