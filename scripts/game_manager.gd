@@ -7,6 +7,7 @@ var day_limit = 5
 var encountered_aliens : = false
 var connection_collapsed : = false
 var ruins_discovered := false
+var player_has_station := false
 
 signal ore_updated(amount:int)
 
@@ -68,7 +69,11 @@ func get_waystations():
 
 func purchase_station():
 	player_ore -= 50
+	player_has_station = true
 	emit_signal("ore_updated", player_ore)
+	
+func remove_station():
+	player_has_station = false
 
 func collect_ore():
 	player_ore += 10
