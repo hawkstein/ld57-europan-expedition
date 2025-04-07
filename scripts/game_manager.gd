@@ -30,7 +30,10 @@ func get_intro() -> String:
 				return "The connection to the surface will collapse within hours. We must escape."
 			return "The connection to the surface will collapse within hours. We are faced with a choice."
 		_:
-			return "The structural integrity of the surface connection continues to fail. We estimate {0} days until collapse.".format([day_limit - day])
+			var day_plural = "days"
+			if day_limit - day == 1:
+				day_plural = "day"
+			return "The structural integrity of the surface connection continues to fail. We estimate {0} {1} until collapse.".format([day_limit - day, day_plural])
 
 func get_message() -> String:
 	const alien_msg = "We have encountered alien life! It does not seem intelligent or hostile."
