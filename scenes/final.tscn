@@ -37,7 +37,7 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_4pp6u")
 theme_override_font_sizes/font_size = 16
-text = "They are the tools a species from a distant point in the galaxy explores worlds like Europa where oceanic pressures mimic their home."
+text = "They are the tools a galaxy-spanning species uses to explore worlds like Europa, where oceanic pressures mimic their home."
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="Panel/VBoxContainer"]
