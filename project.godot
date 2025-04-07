@@ -67,6 +67,7 @@ deploy_waystation={
 
 2d_physics/layer_2="Waystations"
 2d_physics/layer_3="Resources"
+2d_physics/layer_4="Interludes"
 
 [physics]
 
