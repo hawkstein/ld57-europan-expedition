@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://v5rodv1kbjaq"]
+[gd_scene load_steps=3 format=3 uid="uid://v5rodv1kbjaq"]
 
 [ext_resource type="AudioStream" uid="uid://b52o8pipvf2dk" path="res://sounds/LD57 - Descent Into Europa - 07:04:2025, 15.50.mp3" id="1_05ggv"]
+[ext_resource type="Script" uid="uid://bim1pukmc72e" path="res://scripts/music.gd" id="1_ibx2e"]
 
 [node name="Music" type="Node2D"]
+script = ExtResource("1_ibx2e")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_05ggv")
