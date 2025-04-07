@@ -399,6 +399,16 @@ theme_override_fonts/font = ExtResource("5_iywne")
 theme_override_font_sizes/font_size = 16
 text = "Energy: "
 
+[node name="MaterialsLabel" type="Label" parent="HUD"]
+offset_left = 301.0
+offset_top = 10.0
+offset_right = 560.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.290196, 0.72549, 0.639216, 1)
+theme_override_fonts/font = ExtResource("5_iywne")
+text = "Materials:"
+horizontal_alignment = 2
+
 [node name="Chunks" type="Node2D" parent="."]
 
 [node name="SmallChunk" parent="Chunks" instance=ExtResource("4_u5sy4")]

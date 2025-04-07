@@ -7,6 +7,9 @@ func _ready() -> void:
 	for station_position in GameManager.get_waystations():
 		var station = init_waystation(station_position)
 		station.connect("waystation_transfer", energise_submersible)
+	if GameManager.player_ore >= 50:
+		GameManager.purchase_station()
+		submersible.enable_waystation()
 
 func _on_submersible_deploy_waystation(station_position: Vector2) -> void:
 	init_waystation(station_position)

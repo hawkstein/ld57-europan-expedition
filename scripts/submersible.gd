@@ -10,17 +10,19 @@ var energy := 40.0
 var max_energy := 40
 
 signal deploy_waystation(position)
-var can_deploy := true
+var can_deploy := false
 var deploy_mode := false
 @onready var waystation: Sprite2D = $WaystationSprite
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var dink_player: AudioStreamPlayer2D = $DinkPlayer
 @onready var enable_deploy_player: AudioStreamPlayer2D = $EnableDeployPlayer
 @onready var disable_deploy_player: AudioStreamPlayer2D = $DisableDeployPlayer
+@onready var waystation_sprite: Sprite2D = $WaystationSprite
 
-func _ready() -> void:
-	if can_deploy:
-		collision_shape_2d.shape.radius = 15
+func enable_waystation():
+	can_deploy = true
+	collision_shape_2d.shape.radius = 15
+	waystation_sprite.visible = true
 
 func remove_energy(amount:float) -> void:
 	energy -= amount

@@ -1,12 +1,14 @@
 extends Node2D
 
 var waystations := Array([], TYPE_VECTOR2, "", null)
-var player_ore := 50
+var player_ore := 100
 var day := 1
 var day_limit = 5
 var encountered_aliens : = false
 var connection_collapsed : = false
 var ruins_discovered := false
+
+signal ore_updated(amount:int)
 
 #const FORGE = preload("res://scenes/forge.tscn")
 const GAME = preload("res://scenes/game.tscn")
@@ -64,8 +66,13 @@ func add_waystation(station_position:Vector2) -> void:
 func get_waystations():
 	return waystations
 
+func purchase_station():
+	player_ore -= 50
+	emit_signal("ore_updated", player_ore)
+
 func collect_ore():
 	player_ore += 10
+	emit_signal("ore_updated", player_ore)
 	
 func next_day():
 	day += 1
