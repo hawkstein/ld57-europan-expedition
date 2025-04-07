@@ -487,33 +487,47 @@ position = Vector2(436, 5884)
 
 [node name="Ore1" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(55, 822)
+ore_id = 1
+
+[node name="Ore17" parent="Resources" instance=ExtResource("7_u5sy4")]
+position = Vector2(343, 594)
+ore_id = 1
 
 [node name="Ore2" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(59, 866)
+ore_id = 2
 
 [node name="Ore3" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(519, 814)
+ore_id = 3
 
 [node name="Ore4" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(518, 882)
+ore_id = 4
 
 [node name="Ore5" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(519, 954)
+ore_id = 5
 
 [node name="Ore6" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(339, 1734)
+ore_id = 6
 
 [node name="Ore7" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(334, 1778)
+ore_id = 7
 
 [node name="Ore8" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(303, 1821)
+ore_id = 8
 
 [node name="Ore9" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(520, 1776)
+ore_id = 9
 
 [node name="Ore10" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(184, 1984)
+ore_id = 10
 
 [node name="Ore11" parent="Resources" instance=ExtResource("7_u5sy4")]
 position = Vector2(512, 2104)

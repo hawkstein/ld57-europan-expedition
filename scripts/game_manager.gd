@@ -8,6 +8,7 @@ var encountered_aliens : = false
 var connection_collapsed : = false
 var ruins_discovered := false
 var player_has_station := false
+var collected_ores := Array([], TYPE_INT, "", null)
 
 signal ore_updated(amount:int)
 
@@ -78,8 +79,10 @@ func purchase_station():
 func remove_station():
 	player_has_station = false
 
-func collect_ore():
+func collect_ore(id:int):
 	player_ore += 10
+	if id != 0:
+		collected_ores.append(id)
 	emit_signal("ore_updated", player_ore)
 	
 func next_day():

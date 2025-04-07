@@ -2,6 +2,7 @@ extends Node2D
 
 const WAYSTATION = preload("res://scenes/waystation.tscn")
 @onready var submersible: RigidBody2D = $Submersible
+@onready var resources: Node2D = $Resources
 
 func _ready() -> void:
 	for station_position in GameManager.get_waystations():
@@ -13,6 +14,14 @@ func _ready() -> void:
 			submersible.enable_waystation()
 	else:
 		submersible.enable_waystation()
+	
+	for ore in resources.get_children():
+		#print("Ore Id: {0} Ore: {1}".format([ore.ore_id, resources.get_path_to(ore)]))
+		if "ore_id" in ore and GameManager.collected_ores.find(ore.ore_id) >= 0:
+			print("Removing {0}".format([resources.get_path_to(ore)]))
+			resources.remove_child(ore)
+			ore.queue_free()
+	print("----------")
 
 func _on_submersible_deploy_waystation(station_position: Vector2) -> void:
 	call_deferred("init_waystation", station_position)
