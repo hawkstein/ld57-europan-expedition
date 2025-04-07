@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm5uykd5o3jbc"]
+[gd_scene load_steps=4 format=3 uid="uid://cm5uykd5o3jbc"]
 
 [ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="1_5k7kq"]
 [ext_resource type="Script" uid="uid://ctyp6qinwi1y3" path="res://scripts/interlude.gd" id="1_vm4jh"]
+[ext_resource type="FontFile" uid="uid://dbc4uuvqtxffo" path="res://fonts/PixelOperator8.ttf" id="3_ccf40"]
 
 [node name="Interlude" type="Control"]
 layout_mode = 3
@@ -32,7 +33,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_constants/line_spacing = 16
-theme_override_fonts/font = ExtResource("1_5k7kq")
+theme_override_fonts/font = ExtResource("3_ccf40")
 theme_override_font_sizes/font_size = 16
 text = "Intro text goes here, sets up the interlude."
 autowrap_mode = 2
@@ -42,7 +43,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/line_spacing = 16
-theme_override_fonts/font = ExtResource("1_5k7kq")
+theme_override_fonts/font = ExtResource("3_ccf40")
 text = "Message goes here"
 autowrap_mode = 2
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dx8rtf682kyu8"]
 
-[ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="1_5osox"]
+[ext_resource type="FontFile" uid="uid://dbc4uuvqtxffo" path="res://fonts/PixelOperator8.ttf" id="1_5osox"]
 
 [node name="ReturnToEarth" type="Control"]
 layout_mode = 3
