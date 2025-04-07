@@ -924,8 +924,9 @@ position = Vector2(186, 4070)
 curve = SubResource("Curve2D_rysoc")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath7"]
-position = Vector2(80, 56)
+position = Vector2(129.588, 52.8195)
 rotation = -0.0521267
+progress = 392.648
 rotates = false
 
 [node name="AlienUno" parent="Aliens/AlienPath7/PathFollow2D" instance=ExtResource("12_dinhu")]
@@ -957,8 +958,9 @@ position = Vector2(6, 4952)
 curve = SubResource("Curve2D_264po")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath9"]
-position = Vector2(117, 222)
+position = Vector2(358.945, 187.141)
 rotation = -0.188221
+progress = 244.464
 rotates = false
 
 [node name="AlienUno" parent="Aliens/AlienPath9/PathFollow2D" instance=ExtResource("12_dinhu")]
@@ -974,8 +976,9 @@ position = Vector2(17, 4821)
 curve = SubResource("Curve2D_1kice")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Aliens/AlienPath10"]
-position = Vector2(80, 56)
+position = Vector2(233.059, 50)
 rotation = -0.0521267
+progress = 153.214
 rotates = false
 
 [node name="AlienUno" parent="Aliens/AlienPath10/PathFollow2D" instance=ExtResource("12_dinhu")]

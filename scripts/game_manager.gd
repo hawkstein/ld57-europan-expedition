@@ -15,6 +15,17 @@ signal ore_updated(amount:int)
 #const FORGE = preload("res://scenes/forge.tscn")
 const GAME = preload("res://scenes/game.tscn")
 
+var alien_msgs = ["We have encountered alien life! It does not seem intelligent or hostile.",
+"The alien life may not be hostile but interacting drains energy quickly.",
+"These lifeforms are so different from Earth life. We must discover their origin."]
+var alien_index = 0
+
+func get_alien_msg():
+	var msg = alien_msgs[alien_index]
+	if alien_index < alien_msgs.size() - 1:
+		alien_index +=1
+	return msg
+
 func get_day() -> String:
 	if not connection_collapsed:
 		return "Day {0} of {1}".format([day, day_limit])
@@ -37,15 +48,14 @@ func get_intro() -> String:
 			return "The structural integrity of the surface connection continues to fail. We estimate {0} {1} until collapse.".format([day_limit - day, day_plural])
 
 func get_message() -> String:
-	const alien_msg = "We have encountered alien life! It does not seem intelligent or hostile."
 	if ruins_discovered:
 		"These alien ruins... the life we've encountered so far has not seemed intelligent."
 	if connection_collapsed:
-		return "The exploration continues."
+		return "The exploration continues. We are close to discovering it all."
 	match day:
 		1:
 			if encountered_aliens:
-				return alien_msg
+				return get_alien_msg()
 			return "The tunnel seems to have been connected to Europa's inner ocean but there are no clues to why it is not frozen."
 		5:
 			if not encountered_aliens:
@@ -54,7 +64,7 @@ func get_message() -> String:
 		_:
 			if not encountered_aliens:
 				return "This tunnel's origin remains a mystery. We must explore the depths."
-			return alien_msg
+			return get_alien_msg()
 	
 func get_buttons() -> Array:
 	if day < 5:
