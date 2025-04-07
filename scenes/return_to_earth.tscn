@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx8rtf682kyu8"]
+
+[ext_resource type="FontFile" uid="uid://d1sh02lvddewo" path="res://fonts/PixelOperator8-Bold.ttf" id="1_5osox"]
+
+[node name="ReturnToEarth" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 576.0
+
+[node name="Label" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 72.0
+offset_top = 168.0
+offset_right = 488.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("1_5osox")
+theme_override_font_sizes/font_size = 16
+text = "You return to Earth and are respected as a hero for your efforts...
+
+
+But you never make it back to Europa and the mystery you began to untangle is solved by another.
+
+
+Thanks for playing!"
+autowrap_mode = 2

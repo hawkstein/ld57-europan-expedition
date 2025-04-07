@@ -53,12 +53,12 @@ func get_message() -> String:
 	
 func get_buttons() -> Array:
 	if day < 5:
-		return ["Continue exploring", null]
+		return [{"label":"Continue exploring", "action":"continue"}, null]
 	if not encountered_aliens:
-		return ["Return to Earth", null]
+		return [{"label":"Return to Earth", "action":"return"}, null]
 	if not connection_collapsed:
-		return ["There's no turning back", "Return to Earth"]
-	return ["Continue exploring", null]
+		return [{"label":"There's no turning back", "action":"continue"}, {"label":"Return to Earth", "action":"return"}]
+	return [{"label":"Continue exploring", "action":"continue"}, null]
 
 func add_waystation(station_position:Vector2) -> void:
 	waystations.append(station_position)

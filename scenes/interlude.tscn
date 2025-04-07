@@ -60,3 +60,4 @@ theme_override_font_sizes/font_size = 16
 text = "Button Two"
 
 [connection signal="pressed" from="VBoxContainer/ButtonOne" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonTwo" to="." method="_on_button_two_pressed"]
